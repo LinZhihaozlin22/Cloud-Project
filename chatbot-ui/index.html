@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5">This chatbot can help you to reserve table for any restaurants owned by Smart Restaurant. Just click the button below and start booking!</p>
-                        <a class="btn btn-primary btn-xl" href="#main">Make Researvation</a>
+                        <a class="btn btn-primary btn-xl" id="reservation_button" onclick="openChat()">Make Researvation</a>
                     </div>
                 </div>
             </div>
@@ -83,6 +83,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <script src="js/scripts.js"></script>
 		<script type="text/javascript">
+            function openChat() {
+                Kommunicate.displayKommunicateWidget(true); //This will show the widget
+                Kommunicate.launchConversation();
+            }
 		    (function(d, m){
 		        var kommunicateSettings = 
 		            {"appId":"2a01403e082ac015bd32701157f6c3b37","popupWidget":true,"automaticChatOpenOnNavigation":true};
