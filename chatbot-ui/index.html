@@ -5,15 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>COEN241 Project</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/chat.css" rel="stylesheet">
     </head>
 
     <body id="main">
+        <!-- CHATBOT BLOCK -->
+        <div class="chat-bar-collapsible">
+            <button id="chat-button" type="button" class="collapsible">Chat with us!</button>
+            <div class="content">
+                <div class="full-chat-block">
+                    <!-- Message Container -->
+                    <div class="outer-container">
+                        <div class="chat-container">
+                            <!-- chat history box -->
+                            <div id="conversation">
+                                <h5 id="chat-timestamp"></h5>
+                                <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                            </div>
+                            <!-- User input box -->
+                            <div class="chat-bar-input-block">
+                                <div id="userInput">
+                                    <input id="message" class="input-box" type="text" name="msg"
+                                        placeholder="Tap 'Enter' to send a message">
+                                    <p></p>
+                                </div>
+                                <div class="chat-bar-icons">
+                                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                        onclick="sendChat()"></i>
+                                </div>
+                            </div>
+                            <div id="chat-bar-bottom">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -26,6 +58,7 @@
                 </div>
             </div>
         </nav>
+
         <!-- Main page section-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 h-100">
@@ -36,12 +69,12 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5">This chatbot can help you to reserve table for any restaurants owned by Smart Restaurant. Just click the button below and start booking!</p>
-                        <a class="btn btn-primary btn-xl" id="reservation_button" onclick="openChat()">Make Researvation</a>
+                        <a class="btn btn-primary btn-xl" id="reservation_button" onclick="document.getElementById('chat-button').click()">Make Researvation</a>
                     </div>
                 </div>
             </div>
         </header>
-        
+
         <!-- Help section-->
         <section class="page-section" id="help">
             <div class="container px-4 px-lg-5">
@@ -79,23 +112,10 @@
                 </div>
             </div>
         </section>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <script src="js/scripts.js"></script>
-		<script type="text/javascript">
-            function openChat() {
-                Kommunicate.displayKommunicateWidget(true); //This will show the widget
-                Kommunicate.launchConversation();
-            }
-		    (function(d, m){
-		        var kommunicateSettings = 
-		            {"appId":"2a01403e082ac015bd32701157f6c3b37","popupWidget":true,"automaticChatOpenOnNavigation":true};
-		        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-		        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-		        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-		        window.kommunicate = m; m._globals = kommunicateSettings;
-		    })(document, window.kommunicate || {});
-		/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
-		</script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/chatBox.js"></script>
+        <script src="js/lex.js"></script>
     </body>
 </html>
