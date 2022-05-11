@@ -34,7 +34,7 @@ function getTime() {
 
 // Greeting message (Hard coded)
 function Greeting() {
-    let firstMessage = "Hi! I'm chatbot."
+    let firstMessage = "Hi! I'm your restaurant assistant."
     document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
 
     let time = getTime();
