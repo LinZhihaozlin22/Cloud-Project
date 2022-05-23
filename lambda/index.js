@@ -21,10 +21,10 @@ exports.handler = (event, context, callback) => {
                 var partySize = parseInt(event.currentIntent.slots.Size);
                 
                 if (parseInt(bookTime[0])<9 || parseInt(bookTime[0]) >21) {
-                    output = 'Our open hour is 9:00 to 21:00, please enter a correct booking time.'
+                    output = 'Sorry, we are closed at that time. Our open hour is 9:00 to 21:00, please make a new reservation.'
                 } else{
                     if (data.Item.Slot[storeloc]['capacity']-data.Item.Slot[storeloc]['reserved'] < partySize) {
-                        output = 'Sorry, we don\'t have enough seats for this reservation.'
+                        output = 'Sorry, we don\'t have enough seats for this reservation. Please make a new reservation.'
                     } else {
                     
                         output = "Okay, your table for " + partySize +" people will be ready on " + bookTime[0] + ":" + bookTime[1] + " at " + bookDate + ".\nThe address is " + data.Item.Slot[storeloc]['address'] + ". Thank you!"
