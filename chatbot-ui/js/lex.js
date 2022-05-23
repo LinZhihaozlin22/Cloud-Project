@@ -23,7 +23,7 @@ function sendChat() {
 
         // send it to the Lex runtime
         var params = {
-            botAlias: 'Restaurantnewbot',
+            botAlias: 'RestaurantBot',
             botName: 'restaurantBot',
             inputText: wisdom,
             userId: lexUserId,
